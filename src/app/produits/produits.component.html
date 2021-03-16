@@ -1,0 +1,8 @@
+<p>produits works!</p>
+<h1>Bonjour {{nom}}</h1>
+<button class="btn btn-success" (click)="afficheNom()">Affiche nom </button><br>
+<button class="btn btn-success" (click)="fermerOuvrir()"  [disabled]="!marche">ON</button>
+<button class="btn btn-danger" (click)="fermerOuvrir()"  [disabled]="marche">OFF</button>
+
+<input type="text" [(ngModel)]="nom" >
+
