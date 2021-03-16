@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-6">
+
+      <div class="card" style="width: 18rem;" [ngClass]="{'couleurParPrixH': produit.prix>1000,'couleurParPrixB':produit.prix<=1000}">
+        <img class="card-img-top" src="{{produit.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{produit.nomProduit}}</h5>
+          <p class="card-text">{{produit.descProduit}}  </p>
+          <p class="card-text">{{produit.details}}  </p>
+            <p class="card-text">{{produit.prix}} EURO </p>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>

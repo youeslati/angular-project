@@ -15,10 +15,11 @@
         <img class="card-img-top" src="{{produit.image}}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{produit.nomProduit}}</h5>
-          <p class="card-text">{{produit.descProduit}} </p>
+
             <p class="card-text">{{produit.prix}} EURO </p>
           <a href="#" class="btn btn-primary">Acheter</a>
-          <button class="btn btn-success" *ngIf="isAdmin">Editer</button>
+          <button class="btn btn-success" *ngIf="isAdmin"  >Editer</button>
+          <a class="btn btn-primary" (click)="detailsProduit(produit.idProduit)">Voir plus de détails</a>
         </div>
       </div>
     </div>

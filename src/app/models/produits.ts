@@ -1,4 +1,19 @@
 export class Produits {
+
+  private _idProduit: number;
+  public get idProduit(): number {
+    return this._idProduit;
+  }
+  public set idProduit(value: number) {
+    this._idProduit = value;
+  }
+  private _details: string;
+  public get details(): string {
+    return this._details;
+  }
+  public set details(value: string) {
+    this._details = value;
+  }
   private _prix: number;
   public get prix(): number {
     return this._prix;
@@ -29,12 +44,14 @@ export class Produits {
   }
 
 
-  constructor(nomProduit:string, descProduit: string, image: string, prix?:number  ){
+  constructor(nomProduit:string, descProduit: string, image: string, prix:number, id: number, details:string  ){
 
     this.nomProduit=nomProduit;
     this.descProduit=descProduit;
     this.image=image;
     this.prix=prix;
+    this.idProduit=id;
+    this.details=details;
   }
 
 
