@@ -1,7 +1,7 @@
 import { ProduitsService } from './../produits.service';
 import { Produits } from './../models/produits';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -21,10 +21,10 @@ export class AddProduitComponent implements OnInit {
   ngOnInit(): void {
 
   this.formProduit = this.fb.group({
-    'nomProduit' : '',
-    'descProduit': '',
+    'nomProduit' : ['',[Validators.required]],
+    'descProduit': ['',[Validators.required,Validators.minLength(6)]],
     'image': '',
-    'prix': '',
+    'prix': '' ,
     'id': '',
     'details': ''
 
