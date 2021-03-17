@@ -55,6 +55,11 @@ fermerOuvrir(){
 
   }
 
+  editer(id: number){
+
+    this.route.navigate(['/updateproduit/'+id])
+  }
+
 
 
 }

@@ -1,3 +1,4 @@
+
 import { Produits } from './models/produits';
 import { Injectable, OnInit } from '@angular/core';
 
@@ -32,6 +33,20 @@ ngOnInit(){
 
 
     ProduitsService.produits.push(produit);
+      }
+
+      updateProduct(produit: Produits){
+
+        for(let p of ProduitsService.produits){
+          if(produit.idProduit==p.idProduit){
+            p.prix=produit.prix;
+            p.image=produit.image;
+            p.details=produit.details;
+            p.nomProduit=produit.nomProduit
+
+
+          }
+        }
       }
 
 

@@ -36,7 +36,8 @@
       <label for="formGroupExampleInput2">Details</label>
       <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" formControlName="details">
     </div>
-    <button class="btn btn-success" (click)=addProduit()>Ajouter produit</button>
+    <button class="btn btn-success" (click)=addProduit() *ngIf="!edit">Ajouter produit</button>
+    <button class="btn btn-success" (click)=modifierProduit() *ngIf="edit">Modifier produit</button>
   </form>
 
 </div>
