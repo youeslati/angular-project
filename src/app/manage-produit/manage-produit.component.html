@@ -1,1 +1,7 @@
-<p>manage-produit works!</p>
+<form [formGroup]="produit">
+
+  <input type="text" formControlName="idProduit" placeholder="id article">
+  <span *ngIf="submitted  && produit.controls['idProduit'].hasError('required')">id Produit required</span>
+  <input type="text" formControlName="nomProduit" placeholder="nom produit">
+  <button (click)="save()"></button>
+</form>

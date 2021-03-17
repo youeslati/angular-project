@@ -11,8 +11,8 @@
 
     <div class="col-lg-6" *ngFor="let produit of produits">
 
-      <div class="card" style="width: 18rem;" [ngClass]="{'couleurParPrixH': produit.prix>1000,'couleurParPrixB':produit.prix<=1000}">
-        <img class="card-img-top" src="{{produit.image}}" alt="Card image cap">
+      <div class="card"  >
+        <img class="card-img-top" src="{{produit.image}}" alt="Card image cap" >
         <div class="card-body">
           <h5 class="card-title">{{produit.nomProduit}}</h5>
 

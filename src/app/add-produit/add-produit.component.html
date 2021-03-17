@@ -1,0 +1,48 @@
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-2">
+
+
+
+</div>
+
+<div class="col-lg-8">
+
+
+  <form [formGroup]="formProduit">
+    <div class="form-group">
+      <label for="formGroupExampleInput">Id produit</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" formControlName="id">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Nom produit</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" formControlName="nomProduit">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Description produit</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" formControlName="descProduit">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Prix</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" formControlName="prix">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">URL Image</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" formControlName="image">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Details</label>
+      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input" formControlName="details">
+    </div>
+    <button class="btn btn-success" (click)=addProduit()>Ajouter produit</button>
+  </form>
+
+</div>
+
+</div>
+
+</div>
+
+

@@ -1,3 +1,4 @@
+import { AddProduitComponent } from './add-produit/add-produit.component';
 import { DetailsComponent } from './details/details.component';
 import { ManageProduitComponent } from './manage-produit/manage-produit.component';
 import { HomeComponent } from './home/home.component';
@@ -12,7 +13,15 @@ const routes: Routes = [
   {path:'', component: HomeComponent},
   {path:'produits', component: ProduitsComponent},
 
-  {path:'details/:id', component: DetailsComponent}
+  {path:'details/:id', component: DetailsComponent},
+  {path: 'addproduit', component: AddProduitComponent},
+
+
+
+
+
+  {path:'update/:id', component: ManageProduitComponent},
+  {path:'create', component: ManageProduitComponent}
 
 ];
 

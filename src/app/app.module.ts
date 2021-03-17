@@ -1,3 +1,4 @@
+import { TestService } from './services/test.service';
 import { ProduitsService } from './produits.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProduitComponent } from './produit/produit.component';
 import { ManageProduitComponent } from './manage-produit/manage-produit.component';
 import { DetailsComponent } from './details/details.component';
+import { TestComponent } from './test/test.component';
+import { AddProduitComponent } from './add-produit/add-produit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { DetailsComponent } from './details/details.component';
     HomeComponent,
     ProduitComponent,
     ManageProduitComponent,
-    DetailsComponent
+    DetailsComponent,
+    TestComponent,
+    AddProduitComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +32,7 @@ import { DetailsComponent } from './details/details.component';
     NgbModule,
     FormsModule,
     ReactiveFormsModule
+
   ],
   providers: [ProduitsService],
   bootstrap: [AppComponent]
