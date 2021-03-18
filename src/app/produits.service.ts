@@ -23,7 +23,7 @@ ngOnInit(){
   getProduitById(id: number){
 
     for(let produit of ProduitsService.produits){
-      if(produit.idProduit==id){
+      if(produit.id==id){
         return produit;
       }
     }
@@ -38,7 +38,7 @@ ngOnInit(){
       updateProduct(produit: Produits){
 
         for(let p of ProduitsService.produits){
-          if(produit.idProduit==p.idProduit){
+          if(produit.id==p.id){
             p.prix=produit.prix;
             p.image=produit.image;
             p.details=produit.details;
@@ -48,6 +48,8 @@ ngOnInit(){
           }
         }
       }
+
+
 
 
   constructor() {

@@ -18,8 +18,9 @@
 
             <p class="card-text">{{produit.prix}} EURO </p>
           <a href="#" class="btn btn-primary">Acheter</a>
-          <button class="btn btn-success" *ngIf="isAdmin"  (click)="editer(produit.idProduit)" >Editer</button>
-          <a class="btn btn-primary" (click)="detailsProduit(produit.idProduit)">Voir plus de détails</a>
+          <button class="btn btn-success" *ngIf="isAdmin"  (click)="editer(produit.id)" >Editer</button>
+          <button class="btn btn-danger" *ngIf="isAdmin"  (click)="delete(produit.id)" >Delete</button>
+          <a class="btn btn-primary" (click)="detailsProduit(produit.id)">Voir plus de détails</a>
         </div>
       </div>
     </div>

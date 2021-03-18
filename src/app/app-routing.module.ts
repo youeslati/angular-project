@@ -7,6 +7,7 @@ import { ProduitsComponent } from './produits/produits.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProduitComponent } from './produit/produit.component';
+import { ObservableComponent } from './observable/observable.component';
 
 const routes: Routes = [
 
@@ -15,6 +16,7 @@ const routes: Routes = [
 
   {path:'details/:id', component: DetailsComponent},
   {path: 'addproduit', component: AddProduitComponent},
+  {path: 'rxjs', component: ObservableComponent},
   {path: 'updateproduit/:id', component: AddProduitComponent},
 
 

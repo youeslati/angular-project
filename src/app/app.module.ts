@@ -1,3 +1,4 @@
+import { ArticleBackService } from './article-back.service';
 import { TestService } from './services/test.service';
 import { ProduitsService } from './produits.service';
 import { NgModule } from '@angular/core';
@@ -14,7 +15,8 @@ import { ManageProduitComponent } from './manage-produit/manage-produit.componen
 import { DetailsComponent } from './details/details.component';
 import { TestComponent } from './test/test.component';
 import { AddProduitComponent } from './add-produit/add-produit.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ObservableComponent } from './observable/observable.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,17 +26,21 @@ import { AddProduitComponent } from './add-produit/add-produit.component';
     ManageProduitComponent,
     DetailsComponent,
     TestComponent,
-    AddProduitComponent
+    AddProduitComponent,
+    ObservableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+
+
 
   ],
-  providers: [ProduitsService],
+  providers: [ProduitsService,ArticleBackService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

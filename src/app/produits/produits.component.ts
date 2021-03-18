@@ -1,3 +1,4 @@
+import { ArticleBackService } from './../article-back.service';
 import { ProduitsService } from './../produits.service';
 import { Produits } from './../models/produits';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,10 @@ import { Router } from '@angular/router';
 })
 export class ProduitsComponent implements OnInit {
 
-  constructor(private route: Router,private produitsService: ProduitsService ) {
+  constructor(private route: Router,private arbs: ArticleBackService,
+    private articleBackService: ArticleBackService
+
+    ) {
 
   }
 
@@ -19,13 +23,16 @@ export class ProduitsComponent implements OnInit {
   marche: boolean= false;
   produits: Produits[] = new Array<Produits>();
   isAdmin: boolean =true;
+getproduit(){
 
-  getProduits(){
+this.articleBackService.getProduits().subscribe(
 
-    this.produits = this.produitsService.getProduits();
+  (listeProduit)=> this.produits= listeProduit,
+  (err)=>console.log(err)
+)
 
 
-  }
+}
 
 fermerOuvrir(){
   this.marche=!this.marche;
@@ -38,7 +45,7 @@ fermerOuvrir(){
 
 
   ngOnInit(): void {
-   this.getProduits();
+   this.getproduit()
 
   }
 
@@ -58,6 +65,17 @@ fermerOuvrir(){
   editer(id: number){
 
     this.route.navigate(['/updateproduit/'+id])
+  }
+
+  delete(id:number){
+
+
+    this.articleBackService.delete(id).subscribe(
+
+      ()=>{this.getproduit()}
+    )
+
+
   }
 
 

@@ -1,3 +1,4 @@
+import { ArticleBackService } from './../article-back.service';
 import { ActivatedRoute } from '@angular/router';
 import { Produits } from './../models/produits';
 import { ProduitsService } from './../produits.service';
@@ -13,7 +14,9 @@ export class DetailsComponent implements OnInit {
   produit: Produits
    idProduit: number;
 
-  constructor(private xxx: ProduitsService, private activatedRoute: ActivatedRoute) { }
+  constructor(private xxx: ProduitsService, private activatedRoute: ActivatedRoute,
+    private articleBackService: ArticleBackService
+    ) { }
 
   ngOnInit(): void {
 
@@ -24,7 +27,10 @@ this.activatedRoute.params.subscribe(
 
 )
 
-this.produit=this.xxx.getProduitById(this.idProduit);
+this.articleBackService.getProductById(this.idProduit).subscribe(
+
+  (prd)=> this.produit= prd
+)
     console.log(this.produit)
 
   }

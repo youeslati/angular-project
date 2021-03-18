@@ -1,3 +1,4 @@
+import { ArticleBackService } from './../article-back.service';
 import { ProduitsService } from './../produits.service';
 import { Produits } from './../models/produits';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,10 @@ export class AddProduitComponent implements OnInit {
   idProduit: number
   edit :boolean=  false;
 
-  constructor(private fb: FormBuilder, private ps: ProduitsService, private route : Router, private ar: ActivatedRoute ) { }
+  constructor(private fb: FormBuilder, private ps: ProduitsService, private route : Router, private ar: ActivatedRoute,
+    private articleBackService: ArticleBackService
+
+    ) { }
 
   ngOnInit(): void {
 
@@ -38,20 +42,30 @@ export class AddProduitComponent implements OnInit {
 
   if(this.idProduit){
     this.edit=true;
-    let prod = this.ps.getProduitById(this.idProduit)
-    this.formProduit.patchValue({
+    let prod;
 
-      'nomProduit' : prod.nomProduit,
-      'descProduit': prod.descProduit,
-      'image': prod.image,
-      'prix': prod.prix,
-      'id': prod.idProduit,
-      'details': prod.details
+    this.articleBackService.getProductById(this.idProduit).subscribe(
+
+      (prd)=> {prod=prd
+      console.log(prd)
+
+      this.formProduit.patchValue({
+
+        'nomProduit' : prod.nomProduit,
+        'descProduit': prod.descProduit,
+        'image': prod.image,
+        'prix': prod.prix,
+        'id': prod.id,
+        'details': prod.details
 
 
 
 
-    })
+      })
+
+    }
+    )
+
   }
 
 
@@ -63,7 +77,7 @@ export class AddProduitComponent implements OnInit {
   addProduit(){
 
 
-    console.log(this.formProduit.value);
+    //console.log(this.formProduit.value);
     let values = this.formProduit.value;
 
   let produit: Produits = new Produits(
@@ -74,14 +88,15 @@ export class AddProduitComponent implements OnInit {
     values['id'],
     values['details']
     )
-    this.ps.addProduct(produit)
+    this.articleBackService.save(produit).subscribe();
+
     this.route.navigate(['/produits']);
 
   }
 
   modifierProduit(){
 
-    console.log(this.formProduit.value);
+   // console.log(this.formProduit.value);
     let values = this.formProduit.value;
 
   let produit: Produits = new Produits(
@@ -92,7 +107,11 @@ export class AddProduitComponent implements OnInit {
     values['id'],
     values['details']
     )
-    this.ps.updateProduct(produit)
+    this.articleBackService.save(produit).subscribe(
+
+
+
+    );
     this.route.navigate(['/produits']);
   }
 
